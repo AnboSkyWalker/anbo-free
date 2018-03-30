@@ -30,6 +30,8 @@ https://htfy96.github.io/v2ray-config-gen/#
 | -                  | :-:                |
 | Dockerfile         | own docker file    |
 | config_s.json      | server config file |
+| build.sh           | build own docker   |
+| start.sh           | start own docker   |
 | docker-compose.yml | boot file          |
 
 ## docker v2ray server
@@ -48,12 +50,12 @@ v2ray/dev : 包含由最新的代码编译而成的程序文件，随代码库�
 
 ### build own docker
 ``` bash
-docker build . -t anbo/v2ray:0.1
+sudo bash build.sh
 ```
 
 ### start own docker
 ``` bash
-docker-compose up -d
+sudo bash start.sh
 ```
 
 # client
