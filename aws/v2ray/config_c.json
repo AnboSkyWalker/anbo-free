@@ -1,0 +1,103 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "listen": "127.0.0.1",
+    "port": 1080,
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true
+    },
+    "domainOverride": [
+      "http",
+      "tls"
+    ]
+  },
+  "outbound": {
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
+        {
+          "address": "13.125.206.109",
+          "port": 18000,
+          "users": [
+            {
+              "id": "3d98d4e3-87c3-4fd5-8014-dede30391810",
+              "alterId": 64,
+              "security": "auto",
+              "level": 0
+            }
+          ]
+        }
+      ]
+    },
+    "tag": "proxy",
+    "streamSettings": {
+      "network": "tcp",
+      "security": "none",
+      "tlsSettings": {
+        "serverName": "",
+        "allowInsecure": false
+      },
+      "tcpSettings": {
+        "header": {
+          "type": "none",
+          "request": {}
+        }
+      },
+      "kcpSettings": {
+        "mtu": 1350,
+        "tti": 50,
+        "uplinkCapacity": 5,
+        "downlinkCapacity": 20,
+        "congestion": false,
+        "readBufferSize": 2,
+        "writeBufferSize": 2,
+        "header": {
+          "type": "none"
+        }
+      },
+      "wsSettings": {
+        "path": "",
+        "headers": {}
+      }
+    },
+    "mux": {
+      "enabled": false,
+      "concurrency": 8
+    }
+  },
+  "outboundDetour": [
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "block"
+    }
+  ],
+  "routing": {
+    "strategy": "rules",
+    "settings": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "chinaip",
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  }
+}
