@@ -1,0 +1,8 @@
+version: '2.0'
+
+services:
+  v2ray:
+    image: anbo/v2ray:0.1
+    restart: always
+    ports:
+      - "18000:18000"
