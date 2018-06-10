@@ -102,3 +102,6 @@ cp config_c.json /etc/v2ray/config.json
 service v2ray start
 service v2ray status
 ```
+
+# windows client
+https://blog.sharkyzh.cn/post/50d46b4d.html
