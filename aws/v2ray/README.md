@@ -105,3 +105,10 @@ service v2ray status
 
 # windows client
 https://blog.sharkyzh.cn/post/50d46b4d.html
+
+# set ubuntu host timezone
+``` bash
+tzselect
+# You can make this change permanent for yourself by appending the line
+echo "TZ='Asia/Shanghai'; export TZ" >> ~/.profile
+```
