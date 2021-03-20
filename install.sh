@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function timezone()
+function set_timezone()
 {
     #echo "select timezone: 4/9/1/1  Asia/Shanghai"
     #tzselect
@@ -10,7 +10,7 @@ function timezone()
     timedatectl
 }
 
-function docker()
+function install_docker()
 {
     apt-get update
     apt-get upgrade -y
@@ -30,5 +30,5 @@ function docker()
     docker run -ti --rm hello-world
 }
 
-timezone
-docker
+set_timezone
+install_docker
