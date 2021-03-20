@@ -2,11 +2,12 @@
 
 function timezone()
 {
-    echo "select timezone: 4/9/1/1  Asia/Shanghai"
-    tzselect
-    echo "TZ='Asia/Shanghai'; export TZ" >> /root/.profile
-    echo "TZ='Asia/Shanghai'; export TZ" >> /home/ubuntu/.profile
-        
+    #echo "select timezone: 4/9/1/1  Asia/Shanghai"
+    #tzselect
+    #echo "TZ='Asia/Shanghai'; export TZ" >> /root/.profile
+    #echo "TZ='Asia/Shanghai'; export TZ" >> /home/ubuntu/.profile
+    timedatectl set-timezone Asia/Shanghai
+    timedatectl
 }
 
 function docker()
